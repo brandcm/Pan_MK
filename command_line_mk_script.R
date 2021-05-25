@@ -128,7 +128,6 @@ vcf_SNVs<-vcf_SNVs[!duplicated(vcf_SNVs$POS), ]
 
 # Count the number of annotations per variant. Given that SNVs may have multiple annotations, it will be useful to assess the distribution of annotation counts per contig or summed across the entire genome via a histogram to consider how this variation impacts downstream analyses
 
-library(stringr)
 vcf_SNVs$ann_count<-str_count(vcf_SNVs$INFO, ',')
 vcf_SNVs$ann_count<-vcf_SNVs$ann_count + 1
 
