@@ -1,2 +1,6 @@
 # Pan_MK
-This repository contains files and scripts to identify signatures of positive selection at deep time scales in bonobos and chimpanzees.
+This repository contains files and scripts to identify signatures of positive selection during divergence in bonobos and chimpanzees using McDonald-Kreitman tests.
+- mk_filter.sh filters VCF files for high quality sites and genotypes for use in downstream analyses
+- mk_pipeline.sh first builds a snpEff database from a fasta and a gff, subsequently annotates and subsets the VCFs using the *_ids.txt files, and runs the command_line_mk_script.R per chromosome from the chr_names.txt file to run McDonald-Kreitman tests per gene per Pan lineage using a human sequence as an outgroup both without and without a minor allele frequency (0.1) filter as well as per exon
+- one_transcript_per_gene_filtered_gff.R can be used to generate a subset GFF that only includes the longest transcript per gene. One should run this first in order to generate a BED file to subset the VCFs above.
+- SnIPRE_script.R is a modified script from Eilertson et al. 2012 that runs SnIPRE from contigency table data generated using the above scripts. This script runs assuming you have already downloaded the SnIPRE software. Note the comments are those of the original authors. I reran this script five times by modifying the names of the input and output files but this could be easily re-written to do so in a single command. 
